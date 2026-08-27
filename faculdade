@@ -1,0 +1,84 @@
+class Professor {
+    private String nome;
+    private String disciplina;
+
+    public Professor(String nome, String disciplina) {
+        this.nome = nome;
+        this.disciplina = disciplina;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public void mostrar() {
+        System.out.println("Professor: " + nome);
+        System.out.println("Disciplina: " + disciplina);
+    }
+}
+
+class Aluno {
+    private String nome;
+    private String matricula;
+    private int idade;
+    private String curso;
+    private Professor professor;
+
+    public Aluno(String nome, String matricula, int idade,
+                 String curso, Professor professor) {
+        setNome(nome);
+        setMatricula(matricula);
+        setIdade(idade);
+        setCurso(curso);
+        setProfessor(professor);
+    }
+
+    public Aluno(String nome, String matricula, int idade, String curso) {
+        setNome(nome);
+        setMatricula(matricula);
+        setIdade(idade);
+        setCurso(curso);
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        if (matricula.isEmpty()) {
+            throw new IllegalArgumentException("Matrícula inválida");
+        }
+        this.matricula = matricula;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        if (idade < 16) {
+            throw new IllegalArgumentException("Idade inválida");
+        }
+        this.idade = idade;
+    }
+            
